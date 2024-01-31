@@ -1,0 +1,201 @@
+<!doctype html>
+<html class="fixed">
+<head>
+  <!-- Basic -->
+  <meta charset="UTF-8">
+
+  <title>Modifică produsul</title>
+  <meta name="keywords" content="HTML5 Admin Template" />
+  <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+  <meta name="author" content="okler.net">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- Web Fonts  -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+  <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+  <!-- Specific Page Vendor CSS -->
+  <link rel="stylesheet" href="assets/vendor/select2/select2.css" />
+  <link rel="stylesheet" href="assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="assets/stylesheets/theme.css" />
+
+  <!-- Skin CSS -->
+  <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+
+  <!-- Theme Custom CSS -->
+  <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+
+  <!-- Head Libs -->
+  <script src="assets/vendor/modernizr/modernizr.js"></script>
+
+  <style>
+    /* Form styling */
+    .form-horizontal {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 80%;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: #f7f9fc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: left; /* align the form to the left */
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input {
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem;
+      width: 100%;
+      background-color: #e9eff8;
+    }
+
+    button[type="submit"] {
+      margin-top: 1rem;
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      background-color: #4c77af;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #365f91;
+    }
+
+    a {
+      margin-top: 1rem;
+      color: #4c77af;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+
+  <!-- Basic -->
+  <meta charset="UTF-8">
+
+  <title>Basic Forms | Okler Themes | Porto-Admin</title>
+<div>
+<div th:if="${param.error}">
+  <div class="alert alert-danger">Invalid fields</div>
+</div>
+<div th:if="${param.success}">
+  <div class="alert alert-info">
+    Ticket successfully updated!
+  </div>
+</div>
+        <form role="form"
+              th:object="${product}"
+              th:action="@{/update-product/{id}(id=${product.id})}"
+              class="form-horizontal form-bordered"
+              method="post">
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="name">Nume</label>
+            <div class="col-md-6">
+              <input type="text"
+                     class="form-control"
+                     id="name"
+                     name="name"
+                     field="*{name}"
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="description">Descriere</label>
+            <div class="col-md-6">
+              <input type="text"
+                     class="form-control"
+                     id="description"
+                     name="description"
+                     field="*{description}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="myFileInput">Imagine</label>
+            <div class="col-md-6">
+              <input type="file"
+                     class="form-control"
+                     id="myFileInput"
+                     name="image"
+                     field="*{image}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="quantity">Cantitate</label>
+            <div class="col-md-6">
+              <input type="number"
+                     class="form-control"
+                     id="quantity"
+                     field="*{quantity}"
+                     name="quantity">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="price">Preț</label>
+            <div class="col-md-6">
+              <input type="number"
+                     class="form-control"
+                     id="price"
+                     name="price"
+                     field="*{price}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="reducedPrice">Preț redus</label>
+            <div class="col-md-6">
+              <input type="number"
+                     class="form-control"
+                     id="reducedPrice"
+                     name="reducedPrice"
+                     field="*{reducedPrice}">
+            </div>
+          </div>
+          <button type="submit">Salvare</button>
+          <a th:href="@{/menu}">Înapoi la meniu</a>
+        </form>
+</div>
+<script>
+  const fileInput = document.getElementById('myFileInput');
+  fileInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsArrayBuffer(file);
+    reader.onload = () => {
+      const arrayBuffer = reader.result;
+      const byteArray = new Uint8Array(arrayBuffer);
+      console.log(byteArray);
+      // send the byteArray to the server using AJAX or form submission
+    };
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="fixed">
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Modifică rezervarea</title>
+  <meta name="keywords" content="HTML5 Admin Template" />
+  <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+  <meta name="author" content="okler.net">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- Web Fonts  -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+  <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+  <!-- Specific Page Vendor CSS -->
+  <link rel="stylesheet" href="assets/vendor/select2/select2.css" />
+  <link rel="stylesheet" href="assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="assets/stylesheets/theme.css" />
+
+  <!-- Skin CSS -->
+  <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+
+  <!-- Theme Custom CSS -->
+  <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+
+  <!-- Head Libs -->
+  <script src="assets/vendor/modernizr/modernizr.js"></script>
+
+  <style>
+    /* Form styling */
+    .form-horizontal {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 80%;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: #f7f9fc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: left; /* align the form to the left */
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input {
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem;
+      width: 100%;
+      background-color: #e9eff8;
+    }
+
+    button[type="submit"] {
+      margin-top: 1rem;
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      background-color: #4c77af;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #365f91;
+    }
+
+    a {
+      margin-top: 1rem;
+      color: #4c77af;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+
+  <!-- Basic -->
+  <meta charset="UTF-8">
+
+  <title>Modifică rezervare</title>
+<div>
+<div th:if="${param.error}">
+  <div class="alert alert-danger">Există deja o masă cu numărul acesta!</div>
+</div>
+<div th:if="${param.success}">
+  <div class="alert alert-info">
+    Reservare salvată cu succes!
+  </div>
+</div>
+        <form role="form"
+              th:object="${reservation}"
+              th:action="@{/update-reservation/{id}(id=${reservation.id})}"
+              class="form-horizontal form-bordered"
+              method="post">
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="name">Nume</label>
+            <div class="col-md-6">
+              <input type="text"
+                     class="form-control"
+                     id="name"
+                     name="name"
+                     field="*{name}"
+                     required
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="phone">Telefon</label>
+            <div class="col-md-6">
+              <input type="text"
+                     class="form-control"
+                     id="phone"
+                     name="phone"
+                     field="*{phone}"
+                     required
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="guestsNo">Locuri</label>
+            <div class="col-md-6">
+              <input type="number"
+                     class="form-control"
+                     id="guestsNo"
+                     name="guestsNo"
+                     field="*{guestsNo}"
+                     required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="reservationDateTime">Dată</label>
+            <div class="col-md-6">
+              <input type="datetime-local"
+                     class="form-control"
+                     id="reservationDateTime"
+                     name="reservationDateTime"
+                     field="*{reservationDateTime}"
+                     required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+              <select id="online"
+                      name="online"
+                      class="form-control form-control-lg custom-form-control"
+                      required>
+                <option value="1">ONLINE</option>
+                <option value="0">ÎN MAGAZIN</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit">Salvează</button>
+          <a th:href="@{/reservations}">Înapoi la reservări</a>
+        </form>
+</div>
+</body>
+</html>

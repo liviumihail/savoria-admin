@@ -1,0 +1,394 @@
+<!doctype html>
+<html class="fixed"
+	  lang="en"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<!-- Basic -->
+	<meta charset="UTF-8">
+
+	<title>Dashboard</title>
+
+	<!-- Mobile Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<!-- Web Fonts  -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+	<!-- Vendor CSS -->
+	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
+	<link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+	<link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+	<!-- Specific Page Vendor CSS -->
+	<link rel="stylesheet" href="assets/vendor/select2/select2.css" />
+	<link rel="stylesheet" href="assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" href="assets/stylesheets/theme.css" />
+
+	<!-- Skin CSS -->
+	<link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+
+	<!-- Theme Custom CSS -->
+	<link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+
+	<!-- Head Libs -->
+	<script src="assets/vendor/modernizr/modernizr.js"></script>
+
+</head>
+<body>
+<section class="body">
+
+	<!-- start: header -->
+	<header class="header">
+		<div class="logo-container">
+			<!--					<a href="../" class="logo">-->
+			<!--						<img src="assets/images/logo.png" alt="JSOFT Admin" />-->
+			<!--					</a>-->
+			<div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+				<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+			</div>
+		</div>
+
+		<!-- start: search & user box -->
+		<div class="header-right">
+
+			<span class="separator"></span>
+
+			<div id="userbox" class="userbox">
+				<a href="#" data-toggle="dropdown">
+					<figure class="profile-picture">
+						<img src="assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle" data-lock-picture="assets/images/!logged-user.jpg" />
+					</figure>
+					<div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@JSOFT.com">
+						<span class="name">Contul meu</span>
+						<!--<span class="role">administrator</span>-->
+					</div>
+
+					<i class="fa custom-caret"></i>
+				</a>
+
+				<div class="dropdown-menu">
+					<ul class="list-unstyled">
+						<li class="divider"></li>
+						<li>
+							<a role="menuitem" tabindex="-1" href="pages-signin"><i class="fa fa-user"></i>Login</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- end: search & user box -->
+	</header>
+	<!-- end: header -->
+
+	<div class="inner-wrapper">
+		<!-- start: sidebar -->
+		<aside id="sidebar-left" class="sidebar-left">
+
+			<div class="sidebar-header">
+				<div class="sidebar-title" style="color:lightgrey">
+					Meniu
+				</div>
+				<div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+					<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+				</div>
+			</div>
+
+			<div class="nano">
+				<div class="nano-content">
+					<nav id="menu" class="nav-main" role="navigation">
+						<ul class="nav nav-main">
+							<li class="nav-active">
+								<a href="index">
+									<i class="fa fa-home" aria-hidden="true"></i>
+									<span>Dashboard</span>
+								</a>
+							</li>
+							<li class="nav-parent">
+								<a>
+									<i class="fa fa-copy" aria-hidden="true"></i>
+									<span>Pagini</span>
+								</a>
+								<ul class="nav nav-children">
+									<li>
+										<a href="menu">
+											Produse
+										</a>
+									</li>
+									<li>
+										<a href="tables">
+											Mese și locuri
+										</a>
+									</li>
+									<li>
+										<a href="users">
+											Utilizatori
+										</a>
+									</li>
+									<li>
+										<a href="reservations">
+											Rezervari
+										</a>
+									</li>
+									<li>
+										<a href="reviews">
+											Review-uri
+										</a>
+									</li>
+									<li>
+										<a href="collabForm">
+											Cereri colaborare
+										</a>
+									</li>
+									<li>
+										<a href="sales">
+											Vânzări online
+										</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+		</aside>
+				<!-- end: sidebar -->
+
+				<section role="main" class="content-body">
+					<header class="page-header">
+						<h2>Dashboard</h2>
+					
+						<div class="right-wrapper pull-right">
+							<ol class="breadcrumbs">
+								<li>
+									<a href="index">
+										<i class="fa fa-home"></i>
+									</a>
+								</li>
+								<li><span>Dashboard</span></li>
+							</ol>
+
+							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+						</div>
+					</header>
+
+					<div class="row">
+<!--						<form
+							th:method="get"
+							th:action="@{index}"
+							>-->
+						<div class="col-md-6">
+							<section class="panel">
+								<header class="panel-heading">
+									<div class="panel-actions">
+										<a href="#" class="fa fa-caret-down"></a>
+										<a href="#" class="fa fa-times"></a>
+									</div>
+
+									<h2 class="panel-title">Vânzari online</h2>
+									<p class="panel-subtitle" th:inline="text">
+									Vânzări (RON) din ultimele 11 luni
+									</p>
+								</header>
+								<div class="panel-body">
+
+									<!-- Flot: Basic -->
+									<div class="chart chart-md" id="flotBasic"></div>
+									<script type="text/javascript">
+										var sale1=[[${sale1}]];var sale2=[[${sale2}]];
+										var sale3=[[${sale3}]];var sale4=[[${sale4}]];
+										var sale5=[[${sale5}]];var sale6=[[${sale6}]];
+										var sale7=[[${sale7}]];var sale8=[[${sale8}]];
+										var sale9=[[${sale9}]];var sale10=[[${sale10}]];
+										var sale11=[[${sale11}]];var sale12=[[${sale12}]];
+
+										var month1=[[${month1}]];var month2=[[${month2}]];
+										var month3=[[${month3}]];var month4=[[${month4}]];
+										var month5=[[${month5}]];var month6=[[${month6}]];
+										var month7=[[${month7}]];var month8=[[${month8}]];
+										var month9=[[${month9}]];var month10=[[${month10}]];
+										var month11=[[${month11}]];var month12=[[${month12}]];
+
+										var flotBasicData = [{
+											data: [
+												[0, sale1],
+												[1, sale2],
+												[2, sale3],
+												[3, sale4],
+												[4, sale5],
+												[5, sale6],
+												[6, sale7],
+												[7, sale8],
+												[8, sale9],
+												[9, sale10],
+												[10, sale11]
+												/*[11, sale12]*/
+											],
+											label: "Vânzări online",
+											color: "#0088cc"
+										}];
+										/*, {
+											data: [
+												[0, 115],
+												[1, 124],
+												[2, 114],
+												[3, 121],
+												[4, 115],
+												[5, 83],
+												[6, 102],
+												[7, 148],
+												[8, 147],
+												[9, 103],
+												[10, 113]
+											],
+											label: "Series 2",
+											color: "#2baab1"
+										}, {
+											data: [
+												[0, 70],
+												[1, 69],
+												[2, 73],
+												[3, 88],
+												[4, 47],
+												[5, 13],
+												[6, 28],
+												[7, 69],
+												[8, 73],
+												[9, 28],
+												[10, 28]
+											],
+											label: "Series 3",
+											color: "#734ba9"
+										}];*/
+
+										// See: assets/javascripts/ui-elements/examples.charts.js for more settings.
+
+									</script>
+
+								</div>
+							</section>
+						</div>
+						<div class="col-md-6">
+							<section class="panel">
+								<header class="panel-heading">
+									<div class="panel-actions">
+										<a href="#" class="fa fa-caret-down"></a>
+										<a href="#" class="fa fa-times"></a>
+									</div>
+
+									<h2 class="panel-title">Locuri restaurant</h2>
+									<p class="panel-subtitle" th:inline="text">
+										Locuri rezervate în online: [[${onlineReservationNumber}]]<br>
+										Locuri rezervate în magazin: [[${inStoreReservationsNumber}]]<br>
+										Locuri rămase libere: [[${remainingFreeSeatsNumber}]]
+									</p>
+								</header>
+								<div class="panel-body">
+
+									<!-- Flot: Pie -->
+									<div class="chart chart-md" id="flotPie"></div>
+									<script type="text/javascript">
+										var onlineReservations=[[${onlineReservations}]];
+										var inStoreReservations=[[${inStoreReservations}]];
+										var freeSeats=[[${freeSeats}]];
+
+										var flotPieData = [{
+											label: "Rezervari online",
+											data: [
+												[1, onlineReservations]
+											],
+											color: '#0088cc'
+										}, {
+											label: "Rezervari in magazin",
+											data: [
+												[1, inStoreReservations]
+											],
+											color: '#2baab1'
+										}, {
+											label: "Locuri libere",
+											data: [
+												[1, freeSeats]
+											],
+											color: '#734ba9'
+										}];
+
+										// See: assets/javascripts/ui-elements/examples.charts.js for more settings.
+
+									</script>
+									<!--<script type="text/javascript">
+										var onlineReservations = /*[[${onlineReservations}]]*/ 5;
+										var inStoreReservations = /*[[${inStoreReservations}]]*/ 10;
+										var freeSeats = /*[[${freeSeats}]]*/ 85;
+										var flotPieData = [{
+											label: "Rezervari online",
+											data: [
+												[1, onlineReservations]
+											],
+											color: '#0088cc'
+										}, {
+											label: "Rezervari in magazin",
+											data: [
+												[1, inStoreReservations]
+											],
+											color: '#2baab1'
+										}, {
+											label: "Locuri libere",
+											data: [
+												[1, freeSeats]
+											],
+											color: '#734ba9'
+										}];
+
+										// See: assets/javascripts/ui-elements/examples.charts.js for more settings.
+
+									</script>-->
+								</div>
+							</section>
+						</div>
+<!--						</form>-->
+					</div>
+				</section>
+			</div>
+		</section>
+
+		<!-- Vendor -->
+		<script src="assets/vendor/jquery/jquery.js"></script>
+		<script src="assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="assets/vendor/bootstrap/js/bootstrap.js"></script>
+		<script src="assets/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
+		<script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+		<!-- Specific Page Vendor -->
+		<script src="assets/vendor/jquery-appear/jquery.appear.js"></script>
+		<script src="assets/vendor/jquery-easypiechart/jquery.easypiechart.js"></script>
+		<script src="assets/vendor/flot/jquery.flot.js"></script>
+		<script src="assets/vendor/flot-tooltip/jquery.flot.tooltip.js"></script>
+		<script src="assets/vendor/flot/jquery.flot.pie.js"></script>
+		<script src="assets/vendor/flot/jquery.flot.categories.js"></script>
+		<script src="assets/vendor/flot/jquery.flot.resize.js"></script>
+		<script src="assets/vendor/jquery-sparkline/jquery.sparkline.js"></script>
+		<script src="assets/vendor/raphael/raphael.js"></script>
+		<script src="assets/vendor/morris/morris.js"></script>
+		<script src="assets/vendor/gauge/gauge.js"></script>
+		<script src="assets/vendor/snap-svg/snap.svg.js"></script>
+		<script src="assets/vendor/liquid-meter/liquid.meter.js"></script>
+
+		<!-- Theme Base, Components and Settings -->
+		<script src="assets/javascripts/theme.js"></script>
+
+		<!-- Theme Custom -->
+		<script src="assets/javascripts/theme.custom.js"></script>
+
+		<!-- Theme Initialization Files -->
+		<script src="assets/javascripts/theme.init.js"></script>
+
+		<!-- Examples -->
+		<script src="assets/javascripts/ui-elements/examples.charts.js"></script>
+	</body>
+</html>
